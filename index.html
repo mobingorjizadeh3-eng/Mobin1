@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobin Studio</title>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background-color: #121212; color: white; text-align: center; }
+        .logo { font-size: 80px; font-weight: bold; color: #ff0055; margin-bottom: 10px; }
+        .studio-name { font-size: 24px; margin-bottom: 30px; }
+        .btn-container { display: flex; gap: 20px; }
+        button { padding: 10px 25px; cursor: pointer; border: none; border-radius: 5px; font-weight: bold; }
+        .hidden { display: none; }
+        #content-section { padding: 20px; }
+        .beta-text { color: #ffcc00; font-weight: bold; margin-top: 20px; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+    <div id="landing-page">
+        <div class="logo">M</div>
+        <div class="studio-name">Mobin Studio</div>
+        <div class="btn-container">
+            <button onclick="showContent('en')">English</button>
+            <button onclick="showContent('fa')">فارسی</button>
+        </div>
+    </div>
+
+    <div id="content-section" class="hidden">
+        <div id="text-en">
+            <p>Location: Iran | Gamer | Content Creator | Programmer</p>
+        </div>
+        <div id="text-fa" class="hidden">
+            <p>محل زندگی: ایران | گیمر | تولیدکننده محتوا | برنامه‌نویس</p>
+        </div>
+        <p class="beta-text">This site is currently in Beta and will be completed soon.</p>
+    </div>
+
+    <script>
+        function showContent(lang) {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('content-section').classList.remove('hidden');
+            if (lang === 'fa') {
+                document.getElementById('text-fa').classList.remove('hidden');
+                document.getElementById('text-en').classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
