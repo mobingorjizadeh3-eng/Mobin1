@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobin Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: 'Orbitron', sans-serif; background-color: #0f0f0f; color: #ffffff; margin: 0; padding: 20px; text-align: center; animation: fadeIn 1s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none; }
+        .card { background: #1a1a1a; padding: 25px; border-radius: 20px; margin: 20px auto; border: 1px solid #333; max-width: 500px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); }
+        button { background: #ff0055; color: white; border: none; padding: 15px 25px; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 16px; width: 100%; transition: 0.3s ease; font-family: 'Orbitron', sans-serif; }
+        button:hover { background: #ff0088; transform: translateY(-3px); box-shadow: 0 0 20px #ff0055; }
+        h1 { color: #ff0055; text-shadow: 0 0 10px #ff0055; margin-bottom: 30px; }
+        
+        /* استایل آیکون‌های سوشال */
+        .social-icons { display: flex; justify-content: center; gap: 30px; margin-top: 15px; }
+        .social-icons a { text-decoration: none; font-size: 40px; transition: 0.4s; }
+        
+        .fa-youtube { color: #ff0000; } /* رنگ یوتیوب */
+        .fa-instagram { color: #e1306c; } /* رنگ اینستاگرام */
+        
+        .social-icons a:hover { transform: scale(1.2); filter: drop-shadow(0 0 10px currentColor); }
+        
+        .status-dot { height: 10px; width: 10px; background-color: #00ff00; border-radius: 50%; display: inline-block; margin-right: 5px; box-shadow: 0 0 8px #00ff00; }
+    </style>
+</head>
+<body>
+
+    <div id="landing-page">
+        <h1 style="font-size: 4em; margin-bottom: 40px;">M</h1>
+        <button onclick="showMain('en')">ENTER STUDIO (EN)</button>
+        <button onclick="showMain('fa')" style="margin-top:20px;">ورود به استودیو (FA)</button>
+    </div>
+
+    <div id="main-page" class="hidden">
+        <h1>Mobin Studio</h1>
+        <p id="no-article" style="opacity: 0.7;">No articles available yet.</p>
+
+        <div class="card">
+            <p><span class="status-dot"></span> <strong>Server Status:</strong> Online</p>
+            <p><strong>Current Project:</strong> Coding Site V2.0</p>
+        </div>
+
+        <div class="card">
+            <h3 id="price-title">Personal Site Request</h3>
+            <p id="price-desc" style="color: #00d4ff; font-size: 1.2em;">Price: 1,000,000 T</p>
+            <p id="support-desc" style="font-size: 0.9em;">IR ✅ | USA (Soon)</p>
+            <button onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">GET YOUR SITE</button>
+        </div>
+
+        <div id="contact-section" class="card">
+            <h3 id="contact-title">Contact Us</h3>
+            <div class="social-icons">
+                <a href="https://youtube.com/@mobin-p4e" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/mobin_gorjizadeh" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('main-page').classList.add('hidden');
+        function showMain(lang) {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('main-page').classList.remove('hidden');
+            if (lang === 'fa') {
+                document.getElementById('no-article').innerText = "فعلاً مقاله‌ای وجود ندارد؛ سایت تازه تاسیس است.";
+                document.getElementById('price-title').innerText = "درخواست ساخت سایت شخصی";
+                document.getElementById('price-desc').innerText = "قیمت: ۱ میلیون تومان";
+                document.getElementById('support-desc').innerText = "کشورها: ایران ✅ | آمریکا (بزودی)";
+                document.getElementById('contact-title').innerText = "ارتباط با ما";
+            }
+        }
+    </script>
+</body>
+</html>
