@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobin Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body { font-family: 'Orbitron', sans-serif; background-color: #0f0f0f; color: #ffffff; margin: 0; padding: 20px; text-align: center; animation: fadeIn 1s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .hidden { display: none; }
+        .card { background: #1a1a1a; padding: 25px; border-radius: 20px; margin: 20px auto; border: 1px solid #333; max-width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        button { background: #ff0055; color: white; border: none; padding: 15px 25px; border-radius: 12px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s; }
+        button:hover { background: #ff0088; transform: translateY(-3px); box-shadow: 0 0 15px #ff0055; }
+        
+        /* Chat Widget Styles */
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        #chat-box { width: 280px; height: 200px; background: #1a1a1a; border: 1px solid #ff0055; border-radius: 15px; display: none; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(255,0,85,0.3); }
+        .coming-soon { color: #ff0055; font-size: 1.2em; text-shadow: 0 0 10px #ff0055; }
+    </style>
+</head>
+<body>
+
+    <div id="landing-page">
+        <h1 style="font-size: 4em; color: #ff0055;">M</h1>
+        <button onclick="showMain('en')">ENTER STUDIO</button>
+        <button onclick="showMain('fa')" style="margin-top:15px;">ورود به استودیو</button>
+    </div>
+
+    <div id="main-page" class="hidden">
+        <h1>Mobin Studio</h1>
+        <div class="card">
+            <p><strong>Server Status:</strong> Online ✅</p>
+        </div>
+        <div class="card">
+            <h3>Contact Us</h3>
+            <div style="font-size: 30px; gap: 20px; display: flex; justify-content: center;">
+                <a href="https://youtube.com/@mobin-p4e" target="_blank" style="color:#ff0000"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/mobin_gorjizadeh" target="_blank" style="color:#e1306c"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chat Placeholder -->
+    <div class="chat-widget">
+        <button onclick="toggleChat()" style="width: auto; padding: 10px 15px; font-size: 12px;"><i class="fas fa-robot"></i> AI</button>
+        <div id="chat-box">
+            <p class="coming-soon">COMING SOON!</p>
+            <p style="font-size: 10px;">Mobin AI Assistant</p>
+            <button onclick="toggleChat()" style="width: auto; padding: 5px 10px; font-size: 10px; background: #333;">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showMain(lang) {
+            document.getElementById('landing-page').classList.add('hidden');
+            document.getElementById('main-page').classList.remove('hidden');
+        }
+        function toggleChat() {
+            const box = document.getElementById('chat-box');
+            box.style.display = box.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>
